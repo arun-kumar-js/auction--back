@@ -88,9 +88,9 @@ user Signup, Login, Auctions and Bidding using tokens in a Node.js application w
 
 ![Login](https://github.com/Atchayavijay/FE-Auction-Platform/blob/main/Result%20SS/Login.png)
 
-![AuctionPage](https://github.com/Atchayavijay/FE-Auction-Platform/blob/main/Result%20SS/AuctionPage.png)
+![AuctionPage](https://github.com/user-attachments/assets/0fba7860-4dd3-4904-872a-3f144231aa8d)
 
-![LeaderPage](https://github.com/Atchayavijay/FE-Auction-Platform/blob/main/Result%20SS/LeaderBoard.png)
+![LeaderPage](https://github.com/user-attachments/assets/41bdf55c-9190-4a24-b875-6f975100b894)
 
 ![Winner Email Message](https://github.com/Atchayavijay/FE-Auction-Platform/blob/main/Result%20SS/Email%20Msg.png)
 
@@ -99,11 +99,11 @@ user Signup, Login, Auctions and Bidding using tokens in a Node.js application w
 
 # Signup and Auction
 
-https://github.com/user-attachments/assets/14a7174e-2c06-4fda-b468-a9cc855d85be
+https://github.com/user-attachments/assets/219537d6-7157-4bb2-987b-146188aca779
 
 # SignUp and Bidding
 
-https://github.com/user-attachments/assets/18c1f745-b0e9-4ff3-ac8c-066b25beeb6e
+https://github.com/user-attachments/assets/5978a779-1e23-4364-b4d1-e11e0998eecd
 
 
 ## API'S
