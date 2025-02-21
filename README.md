@@ -99,11 +99,11 @@ user Signup, Login, Auctions and Bidding using tokens in a Node.js application w
 
 # Signup and Auction
 
-https://github.com/user-attachments/assets/14a7174e-2c06-4fda-b468-a9cc855d85be
+https://github.com/user-attachments/assets/219537d6-7157-4bb2-987b-146188aca779
 
 # SignUp and Bidding
 
-https://github.com/user-attachments/assets/18c1f745-b0e9-4ff3-ac8c-066b25beeb6e
+https://github.com/user-attachments/assets/5978a779-1e23-4364-b4d1-e11e0998eecd
 
 
 ## API'S
