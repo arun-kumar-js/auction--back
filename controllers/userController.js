@@ -29,8 +29,6 @@ export const register = catchAsyncErrors(async (req, res, next) => {
   if (!userName || !email || !phone || !password  || !role) {
     return next(new ErrorHandler("Please fill full form.", 400));
   }
-  
- 
    
   const cloudinaryResponse = await cloudinary.uploader.upload(
     profileImage.tempFilePath,
@@ -63,8 +61,6 @@ export const register = catchAsyncErrors(async (req, res, next) => {
   generateToken(user, "User Registered.", 201, res);
 });
 
-
-
 export const login = catchAsyncErrors(async (req, res, next) => {
   const { email, password } = req.body;
   if (!email || !password) {
@@ -95,7 +91,6 @@ export const logout = catchAsyncErrors(async (req, res, next) => {
     .cookie("token", "", {
       expires: new Date(Date.now()),
       httpOnly: true,
-      
       sameSite: "None",
     })
     .json({
