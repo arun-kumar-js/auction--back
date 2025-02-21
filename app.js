@@ -12,7 +12,6 @@ import commissionRouter from "./router/commissionRouter.js";
 import superAdminRouter from "./router/superAdminRoutes.js";
 import { endedAuctionCron } from "./automation/endedAuctionCron.js";
 
-
 const app = express();
 
 // Load environment variables from the config file
@@ -23,26 +22,27 @@ config({
 // Serve static files from the 'dist' directory
 app.use(express.static("dist"));
 
-
 // CORS configuration
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://fe-auctionbidding.netlify.app", // No trailing slash
+];
+
 app.use(
   cors({
-    origin: ["https://fe-auctionbidding.netlify.app/", "http://localhost:5173"], // Allowed origins
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        console.warn(`Blocked by CORS: ${origin}`); // Log blocked origins
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
+    credentials: true, // Allow credentials (cookies, authorization headers)
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
-    credentials: true, // Allow credentials (cookies)
   })
 );
-
-// Handle preflight requests
-app.options("*", (req, res) => {
-  res.header("Access-Control-Allow-Origin","https://fe-auctionbidding.netlify.app/" ); 
-  // Dynamically set the origin
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", "true");
-  res.send();
-});
 
 // Middleware for parsing cookies
 app.use(cookieParser());
@@ -58,9 +58,6 @@ app.use(
     tempFileDir: "/tmp/",
   })
 );
-
-app.use(cors());
-app.options("*", cors());
 
 // Routes
 app.use("/api/v1/user", userRouter);

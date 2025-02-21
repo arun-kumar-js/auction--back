@@ -75,6 +75,9 @@ export const login = catchAsyncErrors(async (req, res, next) => {
     return next(new ErrorHandler("Invalid credentials.", 400));
   }
   generateToken(user, "Login successfully.", 200, res);
+  
+
+
 });
 
 export const getProfile = catchAsyncErrors(async (req, res, next) => {
@@ -92,6 +95,7 @@ export const logout = catchAsyncErrors(async (req, res, next) => {
       expires: new Date(Date.now()),
       httpOnly: true,
       sameSite: "None",
+      
     })
     .json({
       success: true,
