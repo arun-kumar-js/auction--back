@@ -12,6 +12,7 @@ import commissionRouter from "./router/commissionRouter.js";
 import superAdminRouter from "./router/superAdminRoutes.js";
 import { endedAuctionCron } from "./automation/endedAuctionCron.js";
 
+
 const app = express();
 
 // Load environment variables from the config file
@@ -26,7 +27,8 @@ app.use(express.static("dist"));
 // CORS configuration
 app.use(
   cors({
-    origin: ["https://fe-auctionbidding.netlify.app/", "http://localhost:5173"], // Allowed origins
+    // origin: ["https://fe-auctionbidding.netlify.app/", "http://localhost:5173"], // Allowed origins
+    origin: ["https://be-auctionbidding-1.onrender.com/", "http://localhost:5000"],
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
     credentials: true, // Allow credentials (cookies)
