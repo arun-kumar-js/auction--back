@@ -27,8 +27,7 @@ app.use(express.static("dist"));
 // CORS configuration
 app.use(
   cors({
-    // origin: ["https://fe-auctionbidding.netlify.app/", "http://localhost:5173"], // Allowed origins
-    origin: ["https://be-auctionbidding-1.onrender.com/", "http://localhost:5000"],
+    origin: ["https://fe-auctionbidding.netlify.app/", "http://localhost:5173"], // Allowed origins
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allowed methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
     credentials: true, // Allow credentials (cookies)
@@ -36,13 +35,14 @@ app.use(
 );
 
 // Handle preflight requests
-// app.options("*", (req, res) => {
-//   res.header("Access-Control-Allow-Origin", req.headers.origin); // Dynamically set the origin
-//   res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-//   res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-//   res.header("Access-Control-Allow-Credentials", "true");
-//   res.send();
-// });
+app.options("*", (req, res) => {
+  res.header("Access-Control-Allow-Origin","https://fe-auctionbidding.netlify.app/" ); 
+  // Dynamically set the origin
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.header("Access-Control-Allow-Credentials", "true");
+  res.send();
+});
 
 // Middleware for parsing cookies
 app.use(cookieParser());
@@ -59,9 +59,7 @@ app.use(
   })
 );
 
-
-
-
+app.use(cors());
 app.options("*", cors());
 
 // Routes
