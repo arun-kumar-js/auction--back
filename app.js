@@ -31,6 +31,7 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: function (origin, callback) {
+      console.log("Incoming origin:", origin); // Log incoming origin
       if (!origin || allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
@@ -43,6 +44,9 @@ app.use(
     allowedHeaders: ["Content-Type", "Authorization"], // Allowed headers
   })
 );
+
+// Explicitly handle OPTIONS requests
+app.options("*", cors());
 
 // Middleware for parsing cookies
 app.use(cookieParser());
